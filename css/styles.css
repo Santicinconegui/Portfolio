@@ -1,0 +1,121 @@
+:root{
+--blanco-texto:#fff;   
+--fondo-oscuro:#1d1d1d ;
+--fondo-nav:#fff;
+--typeWriteSpeed:4s;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--fondo-oscuro);
+}
+
+.container{
+font-family: 'Poppins', sans-serif;
+display: flex;
+flex-direction: column;
+margin-top: 100px;
+
+}
+/* .subcontainer{
+
+} */
+.text-im{
+    color: var(--blanco-texto);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    min-height: 100vh;
+}
+.text-im div{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.subtittle{
+    color:var(--blanco-texto);
+    font-size: 2rem;
+    font-weight: 400;
+}
+h1{
+    cursor: pointer;
+    font-size: clamp(1rem, 3vw + 1rem, 4rem);
+    font-family: 'Source Sans Pro', monospace;
+    position: relative;
+    width: max-content;
+}
+h1::before,
+h1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+h1::before{
+    animation: typewriter var(--typeWriteSpeed) steps(54) forwards;
+    background: var(--fondo-oscuro);
+
+}
+h1::after{
+    width: 0.125em;
+    background-color: #000;
+    animation: typewriter var(--typeWriteSpeed) steps(54) forwards, 
+    blink  350ms var(--typeWriteSpeed) steps(54) infinite;
+
+}
+@keyframes typewriter {
+    to {left:100%;
+    
+    }
+}
+@keyframes blink {
+    to { 
+        background: transparent;
+    }
+}
+
+ul {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+ul li {
+    position: relative;
+    list-style: none;
+}
+ul li a {
+    color: #7158e2;
+    position: relative;
+    font-size: 3em;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+}
+ul li a::before{
+    content: attr(data-text);
+    position: absolute;
+    color: var(--clr);
+    width: 0;
+    overflow:hidden;
+    transition: 1s;
+    border-right: 8px solid var(--clr);
+    -webkit-text-stroke: 1px var(--clr);
+}
+ul li a:hover::before{
+    width: 100%;
+   filter: drop-shadow(0 0 25px var(--clr));
+
+}
